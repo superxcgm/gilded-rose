@@ -48,5 +48,16 @@ TEST(Commodity, should_not_reduce_quality_when_quality_already_0) {
 
     EXPECT_THAT(commodity.GetSellIn(), testing::Eq(init_sell_in - 1));
     EXPECT_THAT(commodity.GetQuality(), testing::Eq(init_quality));
+}
+
+TEST(BackstagePass, should_quality_increase_2_in_10_days_before_show_time) {
+    int init_sell_in = 10;
+    int init_quality = 5;
+    BackStagePass back_stage_pass(init_sell_in, init_quality);
+
+    back_stage_pass.DayAfter();
+
+    EXPECT_THAT(back_stage_pass.GetSellIn(), testing::Eq(init_sell_in - 1));
+    EXPECT_THAT(back_stage_pass.GetQuality(), testing::Eq(init_quality + 2));
 
 }

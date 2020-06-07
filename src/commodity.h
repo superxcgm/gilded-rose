@@ -8,6 +8,7 @@
 #include <string>
 
 class Commodity {
+protected:
     int sell_in_;
     size_t quality_;
 
@@ -28,10 +29,16 @@ public:
 
     static constexpr size_t kMaxQuality{50};
 
-    void DayAfter();
+    virtual void DayAfter();
 
     void ReduceQuality();
 };
 
+class BackStagePass : public Commodity {
+public:
+    BackStagePass(int sell_in, int quality);
+
+    void DayAfter() override;
+};
 
 #endif //GILDED_ROSE_COMMODITY_H

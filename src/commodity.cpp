@@ -36,3 +36,10 @@ void Commodity::ReduceQuality() {
         quality_--;
     }
 }
+
+BackStagePass::BackStagePass(int sell_in, int quality) : Commodity(sell_in, quality) {}
+
+void BackStagePass::DayAfter() {
+    quality_ += 2;
+    sell_in_--;
+}
