@@ -59,5 +59,15 @@ TEST(BackstagePass, should_quality_increase_2_in_10_days_before_show_time) {
 
     EXPECT_THAT(back_stage_pass.GetSellIn(), testing::Eq(init_sell_in - 1));
     EXPECT_THAT(back_stage_pass.GetQuality(), testing::Eq(init_quality + 2));
+}
 
+TEST(BackstagePass, should_quality_increase_3_in_5_days_before_show_time) {
+    int init_sell_in = 5;
+    int init_quality = 5;
+    BackStagePass back_stage_pass(init_sell_in, init_quality);
+
+    back_stage_pass.DayAfter();
+
+    EXPECT_THAT(back_stage_pass.GetSellIn(), testing::Eq(init_sell_in - 1));
+    EXPECT_THAT(back_stage_pass.GetQuality(), testing::Eq(init_quality + 3));
 }
