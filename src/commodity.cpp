@@ -16,7 +16,7 @@ int Commodity::GetQuality() {
 Commodity::Commodity() : sell_in_(0), quality_(0) {}
 
 Commodity::Commodity(int sell_in, size_t quality) : sell_in_(sell_in) {
-    if (quality > 50) {
+    if (quality > kMaxQuality) {
         throw IllegalQuality(quality);
     }
 

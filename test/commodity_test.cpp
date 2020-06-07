@@ -14,5 +14,5 @@ TEST(Commodity, commodity_should_have_sell_in_and_quality) {
 }
 
 TEST(Commodity, should_throw_exception_when_init_commodity_with_quality_greater_than_50) {
-    EXPECT_THROW(new Commodity(0, 51), Commodity::IllegalQuality);
+    EXPECT_THROW(new Commodity(0, Commodity::kMaxQuality + 1), Commodity::IllegalQuality);
 }

@@ -23,8 +23,10 @@ public:
     class IllegalQuality : public std::runtime_error {
     public:
         explicit IllegalQuality(size_t quality) : std::runtime_error(
-                "quality should between 0~50, while " + std::to_string(quality) + " is given.") {}
+                "quality should between 0 and " + std::to_string(kMaxQuality) + ", while " + std::to_string(quality) + " is given.") {}
     };
+
+    static constexpr size_t kMaxQuality{50};
 };
 
 
