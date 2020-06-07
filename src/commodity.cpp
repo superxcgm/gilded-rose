@@ -6,11 +6,11 @@
 #include "commodity.h"
 
 int Commodity::GetSellIn() {
-    return 0;
+    return sell_in_;
 }
 
 int Commodity::GetQuality() {
-    return 0;
+    return quality_;
 }
 
 Commodity::Commodity() : sell_in_(0), quality_(0) {}
@@ -21,4 +21,9 @@ Commodity::Commodity(int sell_in, size_t quality) : sell_in_(sell_in) {
     }
 
     quality_ = quality;
+}
+
+void Commodity::DayAfter() {
+    sell_in_--;
+    quality_--;
 }
