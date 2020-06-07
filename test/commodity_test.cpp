@@ -82,3 +82,14 @@ TEST(BackstagePass, should_not_increase_quality_when_quality_reach_50) {
     EXPECT_THAT(back_stage_pass.GetSellIn(), testing::Eq(init_sell_in - 1));
     EXPECT_THAT(back_stage_pass.GetQuality(), testing::Eq(init_quality));
 }
+
+TEST(BackstagePass, quality_become_zero_after_show_time) {
+    int init_sell_in = 0;
+    int init_quality = 50;
+    BackstagePass back_stage_pass(init_sell_in, init_quality);
+
+    back_stage_pass.DayAfter();
+
+    EXPECT_THAT(back_stage_pass.GetSellIn(), testing::Eq(init_sell_in - 1));
+    EXPECT_THAT(back_stage_pass.GetQuality(), testing::Eq(0));
+}

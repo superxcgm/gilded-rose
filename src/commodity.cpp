@@ -40,11 +40,15 @@ void Commodity::ReduceQuality() {
 BackstagePass::BackstagePass(int sell_in, int quality) : Commodity(sell_in, quality) {}
 
 void BackstagePass::DayAfter() {
-    if (sell_in_ <= 5) {
+    if (sell_in_ <= 0) {
+        quality_ = 0;
+    } else {
+        if (sell_in_ <= 5) {
+            IncreaseQuality();
+        }
+        IncreaseQuality();
         IncreaseQuality();
     }
-    IncreaseQuality();
-    IncreaseQuality();
     sell_in_--;
 }
 
