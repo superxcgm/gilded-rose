@@ -34,9 +34,9 @@ public:
     void ReduceQuality();
 };
 
-class BackStagePass : public Commodity {
+class BackstagePass : public Commodity {
 public:
-    BackStagePass(int sell_in, int quality);
+    BackstagePass(int sell_in, int quality);
 
     void DayAfter() override;
 };
