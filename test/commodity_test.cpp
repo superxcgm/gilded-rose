@@ -12,3 +12,7 @@ TEST(Commodity, commodity_should_have_sell_in_and_quality) {
     EXPECT_THAT(commodity.GetSellIn(), testing::Eq(0));
     EXPECT_THAT(commodity.GetQuality(), testing::Eq(0));
 }
+
+TEST(Commodity, should_throw_exception_when_init_commodity_with_quality_greater_than_50) {
+    EXPECT_THROW(new Commodity(0, 51), Commodity::IllegalQuality);
+}
