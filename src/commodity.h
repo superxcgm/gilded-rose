@@ -29,6 +29,8 @@ public:
     static constexpr size_t kMaxQuality{50};
 
     void DayAfter();
+
+    void ReduceQuality();
 };
 
 

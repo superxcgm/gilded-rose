@@ -25,12 +25,14 @@ Commodity::Commodity(int sell_in, size_t quality) : sell_in_(sell_in) {
 
 void Commodity::DayAfter() {
     if (sell_in_ < 0) {
-        if (quality_ > 0) {
-            quality_--;
-        }
+        ReduceQuality();
     }
+    ReduceQuality();
+    sell_in_--;
+}
+
+void Commodity::ReduceQuality() {
     if (quality_ > 0) {
         quality_--;
     }
-    sell_in_--;
 }
