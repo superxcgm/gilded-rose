@@ -27,3 +27,15 @@ TEST(Commodity, should_reduce_quality_1_after_1_day) {
     EXPECT_THAT(commodity.GetSellIn(), testing::Eq(init_sell_in - 1));
     EXPECT_THAT(commodity.GetQuality(), testing::Eq(init_quality - 1));
 }
+
+TEST(Commodity, should_reduct_quality_2_after_1_day_when_expired) {
+    int init_sell_in = -1;
+    int init_quality = 4;
+    Commodity commodity(init_sell_in, init_quality);
+
+    commodity.DayAfter();
+
+    EXPECT_THAT(commodity.GetSellIn(), testing::Eq(init_sell_in - 1));
+    EXPECT_THAT(commodity.GetQuality(), testing::Eq(init_quality - 2));
+
+}

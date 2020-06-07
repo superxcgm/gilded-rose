@@ -24,6 +24,9 @@ Commodity::Commodity(int sell_in, size_t quality) : sell_in_(sell_in) {
 }
 
 void Commodity::DayAfter() {
-    sell_in_--;
+    if (sell_in_ < 0) {
+        quality_--;
+    }
     quality_--;
+    sell_in_--;
 }
