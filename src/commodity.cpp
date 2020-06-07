@@ -41,15 +41,15 @@ BackstagePass::BackstagePass(int sell_in, int quality) : Commodity(sell_in, qual
 
 void BackstagePass::DayAfter() {
     if (sell_in_ <= 5) {
-        if (quality_ < 50) {
-            quality_++;
-        }
+        IncreaseQuality();
     }
-    if (quality_ < 50) {
-        quality_++;
-    }
-    if (quality_ < 50) {
-        quality_++;
-    }
+    IncreaseQuality();
+    IncreaseQuality();
     sell_in_--;
+}
+
+void BackstagePass::IncreaseQuality() {
+    if (quality_ < kMaxQuality) {
+        quality_++;
+    }
 }

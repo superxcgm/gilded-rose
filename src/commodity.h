@@ -39,6 +39,8 @@ public:
     BackstagePass(int sell_in, int quality);
 
     void DayAfter() override;
+
+    void IncreaseQuality();
 };
 
 #endif //GILDED_ROSE_COMMODITY_H
