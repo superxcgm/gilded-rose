@@ -13,5 +13,27 @@
 9. 后台门票的价格达到50之后， 不会再上升（价值不会超过50）
 10. 后台门票在过了演出日，价值变成0
 
-后台门票在前10天之前的价值变化在需求中未提及，这里不做实现。
+后台门票在前10天之前的价值变化在需求中未提及，属于未定义行为。
 该系统如何交互在需求中未提及，这里不做实现。
+
+## Build
+
+### Prerequisite
+1. cmake INSTALLED
+2. conan INSTALLED
+
+### Build
+```shell script
+# install dependency
+cd test
+mkdir build && cd build
+conan install ..
+
+# build
+cd ../..
+mkdir cmake-build-debug && cd cmake-build-debug 
+cmake --build .
+
+# run test
+./test/tests
+```
