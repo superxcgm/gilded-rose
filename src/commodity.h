@@ -8,7 +8,7 @@
 
 class Commodity {
     int sell_in_;
-    int quality_;
+    size_t quality_;
 
 public:
     int GetSellIn();
