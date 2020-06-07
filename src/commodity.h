@@ -9,9 +9,12 @@
 class Commodity {
     int sell_in_;
     int quality_;
+
 public:
     int GetSellIn();
     int GetQuality();
+
+    Commodity();
 };
 
 

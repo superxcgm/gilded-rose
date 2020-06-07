@@ -11,3 +11,5 @@ int Commodity::GetSellIn() {
 int Commodity::GetQuality() {
     return 0;
 }
+
+Commodity::Commodity() : sell_in_(0), quality_(0) {}
